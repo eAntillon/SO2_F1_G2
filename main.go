@@ -1,28 +1,16 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"bufio"
-	//"strings"
+	//"fmt"
+	//"os"
+	//"bufio"
+	p "github.com/eAntillon/SO2_F1_G2/Menu"
+  	//"strings"
+	//"github.com/eAntillon/SO2_F1_G2"
+	
 )
 
 func main() {
-	fmt.Println("")
-	fmt.Println("################### WELCOME TO SYSTEM METAOS #########")
-	fmt.Println("|----------------------------------------------------|")
-	fmt.Println("|    Enter command or exit to finish the execution:  |")
-	fmt.Println("|----------------------------------------------------|")
-	fmt.Println("")
-	for {
-		fmt.Print(">> ")
-		com := bufio.NewScanner(os.Stdin)
-		if com.Scan() {
-			if com.Text() == "exit" {
-				break
-			} else {
-				//strace(strings.Fields(com.Text()))
-			}
-		}
-	}
+	p.Menu_principal()
 }
+
