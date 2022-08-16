@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"bufio"
+	iot "github.com/eAntillon/SO2_F1_G2/Iotop"
 )
 
 
@@ -103,7 +104,7 @@ func monitoreo(){
 			com := bufio.NewScanner(os.Stdin)
 			if com.Scan() {
 				if com.Text() == "1" {
-					IOTOP()
+					IOTOP(nombre)
 				}else if com.Text() == "2" {
 					TOP()
 				}else if com.Text() == "3" {
@@ -113,9 +114,9 @@ func monitoreo(){
 		}			
 			 		    	
 }
-func IOTOP(){
+func IOTOP(name string){
     fmt.Println( "############## IOTOP ################")
-
+	iot.Run(name)
 }
 func TOP(){
 	fmt.Println( "############## TOP ################")
