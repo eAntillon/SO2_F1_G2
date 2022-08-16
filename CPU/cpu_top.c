@@ -94,7 +94,7 @@
             );
 
             seq_printf(m, "<td>%c</td>",
-                estados(tarea->state)
+                estados(tarea->__state)
             );
 
             seq_printf(m, "<td>%ld</td>",
@@ -128,7 +128,7 @@
             );
 
             seq_printf(m, "<td>%c</td>",
-                estados(task_child->state)
+                estados(task_child->__state)
             );
 
             seq_printf(m, "<td>%ld</td>",
@@ -172,26 +172,26 @@
         return single_open(file, meminfo_proc_show, NULL);
     }
 
-    static const struct file_operations meminfo_proc_fops = {
-        .open       = meminfo_proc_open,
-        .read       = seq_read,
-        .llseek     = seq_lseek,
-        .release    = single_release,
+    static const struct proc_ops meminfo_proc_ops = {
+        .proc_open       = meminfo_proc_open,
+        .proc_read       = seq_read,
+        .proc_lseek     = seq_lseek,
+        .proc_release    = single_release,
     };
 
     
     static int __init inicio_mod(void)
     {
 		//Este metodo escribe el archivo en la carpeta PROC
-        printk(KERN_INFO "Nombre: Grupo2 \n");
-        proc_create("cpu_top", 0, NULL, &meminfo_proc_fops);
+        printk(KERN_INFO "Nombre: Practica1 G2 \n");
+        proc_create("cpu_top", 0, NULL, &meminfo_proc_ops);
         return 0;
     }
 
 	static void __exit final_mod(void)
     {   
 		//Este metodo sale del modulo
-        printk(KERN_INFO "Descargando: ModuloG2 \n");
+        printk(KERN_INFO "Descargando: Diciembre2020 \n");
         remove_proc_entry("cpu_top",NULL);
     }
 
