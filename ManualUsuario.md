@@ -59,7 +59,8 @@ A continuacion se explica las siguiente opciones:
 
 
 ###### _IOTOP_
-![image](/assets/Usuario/IOTOP.png)
+![image](https://user-images.githubusercontent.com/65463537/185207256-23581cdd-d342-459b-9ea5-68e4ed809f9d.png)
+
 
 Está opción muestra la salida producida al ejecutar el comando iotop con los parámetros “-b” y
 “-n1”, además del nombre del usuario que se registró anteriormente. En general, las salidas a
@@ -71,7 +72,7 @@ mostrar son:
 Al final muestra un mensaje indicando si desea ejecutar otra vez.
 
 ###### _TOP_
-![image](/assets/Usuario/TOP.png)
+![image](https://user-images.githubusercontent.com/65463537/185207198-16731ad5-3926-444a-a847-0b9ead4c4852.png)
 
 Éste muestra ina tabulacion de todos los procesos que están siendo ejecutados en el
 servidor, así como un resumen de los procesos
