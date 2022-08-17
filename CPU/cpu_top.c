@@ -92,14 +92,13 @@ static int meminfo_proc_show(struct seq_file *m, void *v){
             } 
         contador = contador + 1;
     }
-    
-    seq_printf(m, "[\n");
-    seq_printf(m, "\n\t{\"ProcEjecucionTotal\": \"%d\"},", procesoEjecucion);
-    seq_printf(m, "\n\t{\"ProcSuspendidoTotal\": \"%d\"},", procesoSuspendidos);
-    seq_printf(m, "\n\t{\"ProcDetenidoTotal\": \"%d\"},", procesoDetenido);
-    seq_printf(m, "\n\t{\"ProcZombieTotal\": \"%d\"},", procesoZombie);
-    seq_printf(m, "\n\t{\"ProcTotales\": \"%d\"}", procesosTotales);
-    seq_printf(m, "\n]");
+
+    seq_printf(m, "\n\tProcesos en ejecucion: %d", procesoEjecucion);
+    seq_printf(m, "\n\tProcesos suspendidos %d", procesoSuspendidos);
+    seq_printf(m, "\n\tProcesos detenidos: %d", procesoDetenido);
+    seq_printf(m, "\n\tProcesos Zombies: %d", procesoZombie);
+    seq_printf(m, "\n\tTotal de procesos: %d", procesosTotales);
+
     
     return 0;
 }

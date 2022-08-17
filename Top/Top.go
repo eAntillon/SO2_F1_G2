@@ -45,7 +45,6 @@ func execute() {
 		return
 	}
 	leido := string(bytesLeidos[:])
-	result := leido[:len(leido)-3] + "]"
-	fmt.Println(string(colorBlue),string(result))
+	fmt.Println(string(colorBlue),leido)
 
 }
