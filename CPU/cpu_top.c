@@ -85,6 +85,8 @@ static int meminfo_proc_show(struct seq_file *m, void *v){
             }
         
         task_child = list_entry( list, struct task_struct, sibling );
+
+        estados(task_child->__state);
         
         }            
             if(contadorHijos > 0){
