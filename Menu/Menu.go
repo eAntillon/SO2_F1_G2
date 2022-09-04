@@ -6,6 +6,7 @@ import (
 	"bufio"
 	iot "github.com/eAntillon/SO2_F1_G2/Iotop"
 	top "github.com/eAntillon/SO2_F1_G2/Top"
+	strace "github.com/eAntillon/SO2_F1_G2/strace"
 )
 
 
@@ -122,4 +123,25 @@ func IOTOP(name string){
 func TOP(name string){
 	fmt.Println( "############## TOP ################")
 	top.Run(name)
+<<<<<<< Updated upstream
 }
+=======
+}
+
+func SYSCALL(name string){
+	fmt.Println( "############## SYSCALL ################")
+	
+    strace.Run(name)
+	/*
+	fmt.Println(string(colorGreen),"  !Ingrese el comando !",string(colorReset))
+	fmt.Print(string(colorYellow),">> ",string(colorReset))
+		com := bufio.NewScanner(os.Stdin)
+		com.Scan()
+		comando:=com.Text()
+		fmt.Println(" ########  ",comando)
+	*/
+
+
+}
+
+>>>>>>> Stashed changes
