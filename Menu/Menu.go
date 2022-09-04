@@ -6,6 +6,7 @@ import (
 	"bufio"
 	iot "github.com/eAntillon/SO2_F1_G2/Iotop"
 	top "github.com/eAntillon/SO2_F1_G2/Top"
+	strace "github.com/eAntillon/SO2_F1_G2/strace"
 )
 
 
@@ -156,19 +157,18 @@ func TOP(name string){
 	top.Run(name)
 }
 
-func SYSCALL(){
+func SYSCALL(name string){
 	fmt.Println( "############## SYSCALL ################")
-	colorReset := "\033[0m";
-	colorYellow := "\033[33m"
-    colorGreen := "\033[32m"
-    
+	
+    strace.Run(name)
+	/*
 	fmt.Println(string(colorGreen),"  !Ingrese el comando !",string(colorReset))
 	fmt.Print(string(colorYellow),">> ",string(colorReset))
 		com := bufio.NewScanner(os.Stdin)
 		com.Scan()
 		comando:=com.Text()
 		fmt.Println(" ########  ",comando)
-
+	*/
 
 
 }
