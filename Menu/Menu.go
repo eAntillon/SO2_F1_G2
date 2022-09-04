@@ -79,8 +79,36 @@ func nuevaEjecucion(){
 
 
 func mostrarReportes(){
-    fmt.Println( "############## REṔORTE ################")
+	colorReset := "\033[0m";
+	colorYellow := "\033[33m"
+	colorRed := "\033[31m"
+	for  {
+       fmt.Println("|----------------------------------------------------|")
+       fmt.Println("|                  Bitacora                          |")
+	   fmt.Println("|----------------------------------------------------|")
+       fmt.Println("|  1)  Bitacora                                      |")
+	   fmt.Println("|----------------------------------------------------|")
+       fmt.Println("|  Seleccione la opcion:                            |")
+	   fmt.Println("")
+	   fmt.Print(string(colorYellow),">> ",string(colorReset))
+	   com := bufio.NewScanner(os.Stdin)
+	   if com.Scan() {
+		  if com.Text() == "1" {
+			Bitacora()
+			break;
+		  }else {
+			fmt.Println(string(colorRed)," Opcion Incorrecta",string(colorReset))
+	        break;
+		  }
+	   }
+	}
 }
+
+func Bitacora(){
+	fmt.Println( "############## BITACORA ################")
+}
+
+
 func monitoreo(){
 	colorReset := "\033[0m";
 	colorYellow := "\033[33m"
@@ -97,7 +125,8 @@ func monitoreo(){
 		fmt.Println(string(colorCyan),"|----------------------------------------------------|")
 		fmt.Println(string(colorCyan),"|  1)  IOTOP                                         |")
 		fmt.Println(string(colorCyan),"|  2)  TOP                                           |")
-		fmt.Println(string(colorCyan),"|  3)  Regresar                                      |")
+		fmt.Println(string(colorCyan),"|  3)  SYSCALL                                       |")
+		fmt.Println(string(colorCyan),"|  4)  Regresar                                      |")
 		fmt.Println(string(colorCyan),"|----------------------------------------------------|")
 		fmt.Println(string(colorCyan),"|  Seleccione una opcion:                            |")
 		fmt.Println("")
@@ -110,8 +139,11 @@ func monitoreo(){
 				}else if com.Text() == "2" {
 					TOP(nombre)
 				}else if com.Text() == "3" {
+					SYSCALL()
+				}else if com.Text() == "4" {
 					break;
 				}
+
 			}
 		}			
 			 		    	
@@ -123,9 +155,6 @@ func IOTOP(name string){
 func TOP(name string){
 	fmt.Println( "############## TOP ################")
 	top.Run(name)
-<<<<<<< Updated upstream
-}
-=======
 }
 
 func SYSCALL(name string){
@@ -143,5 +172,3 @@ func SYSCALL(name string){
 
 
 }
-
->>>>>>> Stashed changes
