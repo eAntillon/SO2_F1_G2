@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	bit "github.com/eAntillon/SO2_F1_G2/Reportes"
 )
 
 func Run(name string) {
@@ -27,6 +28,7 @@ func Run(name string) {
 		com := bufio.NewScanner(os.Stdin)
 		if com.Scan() {
 			if com.Text() == "1" {
+				bit.AgregarActividad("IOTOP")
 				continue
 			} else if com.Text() == "2" {
 				break

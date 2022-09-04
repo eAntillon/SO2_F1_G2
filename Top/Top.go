@@ -3,9 +3,10 @@ package Top
 import (
 	"bufio"
 	"fmt"
+	bit "github.com/eAntillon/SO2_F1_G2/Reportes"
+	"io/ioutil"
 	"log"
 	"os"
-	"io/ioutil"
 )
 
 func Run(name string) {
@@ -14,9 +15,9 @@ func Run(name string) {
 	colorBlue := "\033[34m"
 	for {
 		fmt.Println("|----------------------------------------------------|")
-		fmt.Print(string(colorBlue),">> Nombre: ", name, "\n")
+		fmt.Print(string(colorBlue), ">> Nombre: ", name, "\n")
 		execute()
-		fmt.Println(string(colorReset),"")
+		fmt.Println(string(colorReset), "")
 		fmt.Println("|----------------------------------------------------|")
 		fmt.Println("|                Ejecutar de nuevo?                  |")
 		fmt.Println("|  1)  Si                                            |")
@@ -27,6 +28,7 @@ func Run(name string) {
 		com := bufio.NewScanner(os.Stdin)
 		if com.Scan() {
 			if com.Text() == "1" {
+				bit.AgregarActividad("TOP")
 				continue
 			} else if com.Text() == "2" {
 				break
@@ -45,6 +47,6 @@ func execute() {
 		return
 	}
 	leido := string(bytesLeidos[:])
-	fmt.Println(string(colorBlue),leido)
+	fmt.Println(string(colorBlue), leido)
 
 }

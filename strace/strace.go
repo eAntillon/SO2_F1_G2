@@ -7,6 +7,7 @@ import (
 	"syscall"
 	"bufio"
 	"strings"
+	bit "github.com/eAntillon/SO2_F1_G2/Reportes"
 )
 
 func Run(name string) {
@@ -28,6 +29,7 @@ func Run(name string) {
 		com := bufio.NewScanner(os.Stdin)
 		if com.Scan() {
 			if com.Text() == "1" {
+				bit.AgregarActividad("SYSCALL")
 				continue
 			} else if com.Text() == "2" {
 				break
@@ -48,7 +50,7 @@ func execute() {
 	com := bufio.NewScanner(os.Stdin)
 	if com.Scan() {
 		if com.Text() == "exit" {
-			break
+			return
 		} else {
 			strace(strings.Fields(com.Text()))
 		}
