@@ -37,7 +37,7 @@ func LeerBitacora() []Usuario {
 	err = json.Unmarshal(file, &bitacora)
 	// OCULTAR
 	if err != nil {
-		log.Fatal(err)
+	//	log.Fatal(err)
 		// return  empty array
 		return []Usuario{}
 	}
