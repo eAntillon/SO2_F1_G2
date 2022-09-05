@@ -31,7 +31,16 @@ Esta opcion sirve para mostrar el reporte del programa.
 
 ![image](https://user-images.githubusercontent.com/71113297/188337844-024d033c-7da6-4b0e-9464-4cf1ff90d5b2.png)
 
-Cuando se selecciona esta opción permite seleccionar la bitácora, la cual devolverá todos los usuarios que han utilizado la aplicación.
+Cuando se selecciona esta opción permite seleccionar la bitácora, la cual devolverá todos los usuarios que han utilizado la aplicación y cuantas veces han ejecutado las funcionalidades.
+
+Al elegir la bitácora muestra el mensaje si se ha creado con éxito:
+
+![image](https://user-images.githubusercontent.com/71113297/188339338-a30dfb6d-2d16-472e-9ef9-2f4c34c6f015.png)
+
+Luego de ello se puede revisar el archivo generado "Bitacora.json"
+
+![image](https://user-images.githubusercontent.com/71113297/188339545-1211a1b1-a65e-4f96-b280-d78250e1cdc8.png)
+
 
 
 ###### _EXIT_
@@ -100,27 +109,4 @@ Dentro de esta opción como en las demás, se puede ejecutar nuevamente o salir 
 ###### _REGRESAR_
 
 Esta opcion sirve para regresar al menu anterior.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
