@@ -53,7 +53,46 @@ Este  permite correr la funcion top.
 Este  permite ejecutar la funcion top.
 
 
+#### _SYSCALL_
 
+![image](https://user-images.githubusercontent.com/71113297/188338735-c52d63d5-b537-4839-8ef1-9d98db2edfa1.png)
 
+Este  permite correr la funcion Syscall.
 
+![image](https://user-images.githubusercontent.com/71113297/188338755-9d39c942-e4ba-4a96-b70e-c1aca3c437b2.png)
 
+Y esto permite devolver los resultados.
+
+![image](https://user-images.githubusercontent.com/71113297/188338779-7c80416c-9a2d-4c04-93a8-b0dab65ccce3.png)
+
+Las funciones que consume para terminar el proceso son las siguientes de syscall
+
+![image](https://user-images.githubusercontent.com/71113297/188338808-59236448-ea99-4286-81e0-36c02dc6a118.png)
+
+#### _BTIACORA_
+
+Para esta fase se agrega la bitácora que devolverá los usuarios que han utilizado la aplicación.
+
+Para esto se agregan las siguientes funciones:
+
+Leer la bitácora:
+
+![image](https://user-images.githubusercontent.com/71113297/188338942-ab1c3ea7-c7b1-4f20-b352-39cd8062ab62.png)
+
+Al momento que el usuario introduzca su nombre o alias se creará el registro:
+
+![image](https://user-images.githubusercontent.com/71113297/188338973-ab7320b3-3a89-4536-b165-c8c76ef43599.png)
+
+Se registrarán los comandos ejecutados:
+
+![image](https://user-images.githubusercontent.com/71113297/188338991-917eef37-9a4b-4104-96f3-38181dfab50b.png)
+
+Almacenará el usuario activo:
+
+![image](https://user-images.githubusercontent.com/71113297/188339009-d03c5a52-4f84-4cd5-a7c5-157bc10fc46a.png)
+
+Y escribirá la bitácora:
+
+![image](https://user-images.githubusercontent.com/71113297/188339036-f90ac87b-551a-4472-a711-22a8520a8e11.png)
+
+Esto ser
