@@ -7,7 +7,6 @@ import (
 	iot "github.com/eAntillon/SO2_F1_G2/Iotop"
 	top "github.com/eAntillon/SO2_F1_G2/Top"
 	"strings"
-	strace "github.com/eAntillon/SO2_F1_G2/strace"
 )
 
 
@@ -117,9 +116,7 @@ func Estado_Simulacion(){
 	fmt.Println( "############## ESTADO DE SIMULACION ################")
 }
 
-func Bitacora(){
-	fmt.Println( "############## BITACORA ################")
-}
+
 
 
 func monitoreo(){
@@ -179,11 +176,6 @@ func SYSCALL(){
 	colorYellow := "\033[33m"
     colorGreen := "\033[32m"
     
-func SYSCALL(name string){
-	fmt.Println( "############## SYSCALL ################")
-	
-    strace.Run(name)
-	
 	fmt.Println(string(colorGreen),"  !Ingrese el comando !",string(colorReset))
 	fmt.Print(string(colorYellow),">> ",string(colorReset))
 		com := bufio.NewScanner(os.Stdin)
@@ -227,10 +219,6 @@ func arreglo_dinamico(command []string){
 	}
 }
 
-
-
-
-	
 
 
 
