@@ -6,8 +6,12 @@ import (
 	iot "github.com/eAntillon/SO2_F1_G2/Iotop"
 	bit "github.com/eAntillon/SO2_F1_G2/Reportes"
 	top "github.com/eAntillon/SO2_F1_G2/Top"
+<<<<<<< HEAD
 	strace "github.com/eAntillon/SO2_F1_G2/strace"
 	"os"
+=======
+	"strings"
+>>>>>>> v1.6
 )
 
 func Menu_principal() {
@@ -78,6 +82,7 @@ func mostrarReportes() {
 	colorReset := "\033[0m"
 	colorYellow := "\033[33m"
 	colorRed := "\033[31m"
+<<<<<<< HEAD
 	for {
 		fmt.Println("|----------------------------------------------------|")
 		fmt.Println("|                  Bitacora                          |")
@@ -97,6 +102,31 @@ func mostrarReportes() {
 				break
 			}
 		}
+=======
+	for  {
+       fmt.Println("|----------------------------------------------------|")
+       fmt.Println("|                  Bitacora                          |")
+	   fmt.Println("|----------------------------------------------------|")
+       fmt.Println("|  1)  Bitacora                                      |")
+	   fmt.Println("|  2)  Estado de Simulacion                          |")
+	   fmt.Println("|----------------------------------------------------|")
+       fmt.Println("|  Seleccione la opcion:                            |")
+	   fmt.Println("")
+	   fmt.Print(string(colorYellow),">> ",string(colorReset))
+	   com := bufio.NewScanner(os.Stdin)
+	   if com.Scan() {
+		  if com.Text() == "1" {
+			Bitacora()
+			break;
+		  }else if com.Text() == "2" {
+			Estado_Simulacion()
+			break;
+		  }else {
+			fmt.Println(string(colorRed)," Opcion Incorrecta",string(colorReset))
+	        break;
+		  }
+	   }
+>>>>>>> v1.6
 	}
 }
 
@@ -105,8 +135,16 @@ func Bitacora() {
 	bit.EscribirBitacora()
 }
 
+<<<<<<< HEAD
 func monitoreo() {
 	colorReset := "\033[0m"
+=======
+func Estado_Simulacion(){
+	fmt.Println( "############## ESTADO DE SIMULACION ################")
+}
+func monitoreo(){
+	colorReset := "\033[0m";
+>>>>>>> v1.6
 	colorYellow := "\033[33m"
 	colorGreen := "\033[32m"
 	colorCyan := "\033[36m"
@@ -120,6 +158,7 @@ func monitoreo() {
 	bit.CrearUsuario(nombre)
 	for {
 		fmt.Println("")
+<<<<<<< HEAD
 		fmt.Println(string(colorCyan), "|----------------------------------------------------|")
 		fmt.Println(string(colorCyan), "|  1)  IOTOP                                         |")
 		fmt.Println(string(colorCyan), "|  2)  TOP                                           |")
@@ -143,6 +182,33 @@ func monitoreo() {
 			} else if com.Text() == "4" {
 				bit.GuardarUsuario()
 				break
+=======
+		fmt.Println(string(colorCyan),"|----------------------------------------------------|")
+		fmt.Println(string(colorCyan),"|  1)  IOTOP                                         |")
+		fmt.Println(string(colorCyan),"|  2)  TOP                                           |")
+		fmt.Println(string(colorCyan),"|  3)  SYSCALL                                       |")
+		fmt.Println(string(colorCyan),"|  4)  MEMSIM                                        |")
+		fmt.Println(string(colorCyan),"|  5)  Regresar                                      |")
+		fmt.Println(string(colorCyan),"|----------------------------------------------------|")
+		fmt.Println(string(colorCyan),"|  Seleccione una opcion:                            |")
+		fmt.Println("")
+			fmt.Print(string(colorYellow),">> ",string(colorReset))
+		
+			com := bufio.NewScanner(os.Stdin)
+			if com.Scan() {
+				if com.Text() == "1" {
+					IOTOP(nombre)
+				}else if com.Text() == "2" {
+					TOP(nombre)
+				}else if com.Text() == "3" {
+					SYSCALL()
+				}else if com.Text() == "4" {
+					MEMSIM()
+				}else if com.Text() == "5" {
+					break;
+				}
+
+>>>>>>> v1.6
 			}
 		}
 	}
@@ -171,3 +237,42 @@ func SYSCALL(name string) {
 	*/
 
 }
+<<<<<<< HEAD
+=======
+
+func MEMSIM(){
+	
+
+    fmt.Println( "############## MEMSIM  ################");
+     colorReset := "\033[0m";
+     colorYellow := "\033[33m";
+     colorGreen := "\033[32m";
+        //  primera opcion 
+        fmt.Println(string(colorGreen),"  Ingrese cantidad de ciclos de trabajo",string(colorReset))
+	    fmt.Print(string(colorYellow),">> ",string(colorReset))
+		com := bufio.NewScanner(os.Stdin)
+		com.Scan()
+		comando:=com.Text()
+		fmt.Println(" ########  ",comando)
+            //  segunda  opcion 
+		fmt.Println(string(colorGreen),"  Ingrese unidades de memoria ",string(colorReset))
+	    fmt.Print(string(colorYellow),">> ",string(colorReset))
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		cmd := scanner.Text()
+		//fmt.Println(" ########  ",strings.Fields(cmd));
+	    arreglo_dinamico(strings.Split(cmd,","))	
+}
+
+func arreglo_dinamico(command []string){
+
+
+	for i := 0; i < len(command); i++ {
+		fmt.Println(" ######## posicion",i,"  ",command[i])
+	}
+}
+
+
+
+
+>>>>>>> v1.6
