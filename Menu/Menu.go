@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package Menu
 
 import (
@@ -276,3 +277,5 @@ func arreglo_dinamico(command []string){
 
 
 >>>>>>> v1.6
+=======
+>>>>>>> develop
