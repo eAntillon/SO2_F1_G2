@@ -191,14 +191,14 @@ func MEMSIM(){
      colorYellow := "\033[33m";
      colorGreen := "\033[32m";
         //  primera opcion 
-        fmt.Println(string(colorGreen),"  Ingrese cantidad de ciclos de trabajo",string(colorReset))
+        fmt.Println(string(colorGreen)," Ingrese cantidad de ciclos de trabajo",string(colorReset))
 	    fmt.Print(string(colorYellow),">> ",string(colorReset))
 		com := bufio.NewScanner(os.Stdin)
 		com.Scan()
 		comando:=com.Text()
 		fmt.Println(" ########  ",comando)
             //  segunda  opcion 
-		fmt.Println(string(colorGreen),"  Ingrese unidades de memoria ",string(colorReset))
+		fmt.Println(string(colorGreen)," Ingrese unidades de memoria ",string(colorReset))
 	    fmt.Print(string(colorYellow),">> ",string(colorReset))
 		scanner := bufio.NewScanner(os.Stdin)
 		scanner.Scan()
