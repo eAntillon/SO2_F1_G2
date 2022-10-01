@@ -260,7 +260,7 @@ func MEMSIM(){
 		scanner := bufio.NewScanner(os.Stdin)
 		scanner.Scan()
 		cmd := scanner.Text()
-		//fmt.Println(" ########  ",strings.Fields(cmd));
+		//fmt.Println(" ########  ",strings.Fields(cmd))
 	    arreglo_dinamico(strings.Split(cmd,","))	
 }
 
