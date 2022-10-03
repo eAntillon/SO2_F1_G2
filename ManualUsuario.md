@@ -106,6 +106,16 @@ Dentro de esta opción como en las demás, se puede ejecutar nuevamente o salir 
 
 ![image](https://user-images.githubusercontent.com/71113297/188338322-a6c44f98-0496-4741-9b35-9c6b68446ed2.png)
 
+###### _MEMSIM_
+
+![image](/assets/Usuario/ejecMemsis1.JPG)
+
+Este comando realiza una simulación de la sincronización de múltiples tareas de asignación. El usuario define una
+cantidad total de ciclos de trabajo y un conjunto de distintas (unidades) de memoria. 
+
+A cada proceso se le dará una unidad de memoria que deberá transportar. Al terminar su tarea, cada proceso deberá 
+esperar al resto de procesos antes de iniciar una nueva ejecucion.
+
 ###### _REGRESAR_
 
 Esta opcion sirve para regresar al menu anterior.

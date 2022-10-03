@@ -69,6 +69,12 @@ Las funciones que consume para terminar el proceso son las siguientes de syscall
 
 ![image](https://user-images.githubusercontent.com/71113297/188338808-59236448-ea99-4286-81e0-36c02dc6a118.png)
 
+#### _MEMSIM_
+
+![image](/assets/Tecnico/executeMemsim.PNG)
+
+Este permite correr la funcion de Memsim
+
 #### _BTIACORA_
 
 Para esta fase se agrega la bitácora que devolverá los usuarios que han utilizado la aplicación.
@@ -81,7 +87,7 @@ Leer la bitácora:
 
 Al momento que el usuario introduzca su nombre o alias se creará el registro:
 
-![image](https://user-images.githubusercontent.com/71113297/188338973-ab7320b3-3a89-4536-b165-c8c76ef43599.png)
+![image](/assets/Tecnico/bitacoraUsuarioMemsim.PNG)
 
 Se registrarán los comandos ejecutados:
 
