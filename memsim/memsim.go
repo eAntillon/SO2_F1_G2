@@ -45,9 +45,6 @@ func main() {
 	scanner.Scan()
 	ciclos := scanner.Text()
 
-	fmt.Printf("")
-	fmt.Println("ingreso:", ciclos)
-
 	//verificar que sea un entero, en ciclos de trabajo
 	if _, err := strconv.Atoi(ciclos); err == nil {
 		fmt.Printf(InfoColor, " Ingrese unidades de memoria>> ")
