@@ -8,19 +8,6 @@ import (
 	"os"
 )
 
-type Usuario struct {
-	Usuario   string      `json:"usuario"`
-	Actividad []Actividad `json:"actividad"`
-}
-
-type Actividad struct {
-	Funcion     string `json:"funcion"`
-	Ejecuciones int    `json:"ejecuciones"`
-}
-
-var UsuarioActivo *Usuario
-var UsuariosSesion []Usuario
-
 func LeerBitacora() []Usuario {
 
 	var bitacora []Usuario
@@ -37,22 +24,11 @@ func LeerBitacora() []Usuario {
 	err = json.Unmarshal(file, &bitacora)
 	// OCULTAR
 	if err != nil {
-	//	log.Fatal(err)
+		//	log.Fatal(err)
 		// return  empty array
 		return []Usuario{}
 	}
 	return bitacora
-}
-
-func CrearUsuario(nombre string) Usuario {
-	actividades := []Actividad{
-		{"IOTOP", 0},
-		{"TOP", 0},
-		{"SYSCALL", 0},
-	}
-	usuario := Usuario{nombre, actividades}
-	UsuarioActivo = &usuario
-	return usuario
 }
 
 func AgregarActividad(actividad string) {
@@ -60,17 +36,6 @@ func AgregarActividad(actividad string) {
 	for i := 0; i < len(usuario.Actividad); i++ {
 		if usuario.Actividad[i].Funcion == actividad {
 			usuario.Actividad[i].Ejecuciones++
-		}
-	}
-}
-
-func GuardarUsuario() {
-	if UsuarioActivo != nil {
-		if UsuariosSesion == nil {
-			UsuariosSesion = []Usuario{*UsuarioActivo}
-		} else {
-
-			UsuariosSesion = append(UsuariosSesion, *UsuarioActivo)
 		}
 	}
 }
