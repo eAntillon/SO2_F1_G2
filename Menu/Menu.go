@@ -7,8 +7,8 @@ import (
 	rep "github.com/eAntillon/SO2_F1_G2/Reportes"
 	top "github.com/eAntillon/SO2_F1_G2/Top"
 	strace "github.com/eAntillon/SO2_F1_G2/strace"
+	mem "github.com/eAntillon/SO2_F1_G2/Memsim"
 	"os"
-	"strings"
 )
 
 func Menu_principal() {
@@ -155,7 +155,7 @@ func monitoreo() {
 				rep.AgregarActividad("SYSCALL")
 				SYSCALL(nombre)
 			} else if com.Text() == "4" {
-				MEMSIM()
+				MEMSIM(nombre)
 			} else if com.Text() == "5" {
 				rep.GuardarUsuario()
 				break
@@ -187,36 +187,12 @@ func SYSCALL(name string) {
 	*/
 
 }
+var (
+	arreglo       string
+	arregloPartes []string
+)
 
-func MEMSIM() {
-
+func MEMSIM(nombre string) {
 	fmt.Println("############## MEMSIM  ################")
-	colorReset := "\033[0m"
-	colorYellow := "\033[33m"
-	colorGreen := "\033[32m"
-	//  primera opcion
-	fmt.Println(string(colorGreen), " Ingrese cantidad de ciclos de trabajo", string(colorReset))
-	fmt.Print(string(colorYellow), ">> ", string(colorReset))
-	com := bufio.NewScanner(os.Stdin)
-	com.Scan()
-	comando := com.Text()
-	fmt.Println(" ########  ", comando)
-	//  segunda  opcion
-	fmt.Println(string(colorGreen), " Ingrese unidades de memoria ", string(colorReset))
-	fmt.Print(string(colorYellow), ">> ", string(colorReset))
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	cmd := scanner.Text()
-	//fmt.Println(" ########  ",strings.Fields(cmd));
-
-	rep.AgregarSimulacion(comando, cmd)
-
-	arreglo_dinamico(strings.Split(cmd, ","))
-}
-
-func arreglo_dinamico(command []string) {
-
-	for i := 0; i < len(command); i++ {
-		fmt.Println(" ######## posicion", i, "  ", command[i])
-	}
+	mem.Run(nombre)
 }
