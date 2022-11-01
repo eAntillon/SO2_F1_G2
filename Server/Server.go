@@ -1,72 +1,76 @@
 package Server
 import (
+	"context"
+	"encoding/json"
 	"fmt"
-	//p "github.com/eAntillon/SO2_F1_G2/Menu"
 	"net/http"
-	"github.com/gin-gonic/gin"
-	//"strings"
-	//"github.com/eAntillon/SO2_F1_G2"
-	ts "github.com/eAntillon/SO2_F1_G2/Types"
+	"os"
+	"reflect"
+	"strings"
+	"time"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"github.com/gorilla/mux"
 	db "github.com/eAntillon/SO2_F1_G2/Db"
-	
+	ts "github.com/eAntillon/SO2_F1_G2/Types"
 )
-func getTest(c *gin.Context) {
-    c.JSON(http.StatusOK, "conexion exitosa")
-}
 
 
-//-- Peticion de Usuarios   
-func PostLogin(c *gin.Context) {
-	var login ts.Login
-	var getLogin ts.Getlogin
-	if err := c.ShouldBind(&login); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"msg": err.Error()})
-		return
+func PostLogin(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	login ts.Login
+	getLogin ts.Getlogin
+	err := json.NewDecoder(r.Body).Decode(&login)
+	fmt.Println("usuario: ", login)
+	if err != nil {
+		fmt.Fprintf(w, "error en kill")
 	}
-	getLogin =db.Login(login)
+	getLogin = db.Login(login)
+
 	if login.Correo == getLogin.Correo && login.Password == getLogin.Password {
-		c.JSON(http.StatusOK, gin.H{"status": "authorized"})
+		json.NewEncoder(w).Encode("status": "authorized")
 		return
 	}else{
-		c.JSON(http.StatusUnauthorized, gin.H{"status": "unauthorized"})
+		json.NewEncoder(w).Encode("status": "unauthorized")
 		return
 	}
 	
 }
 
-func PostRegistro(c *gin.Context) {
-	var registro ts.RegistroUsuario
-	
-	if err := c.ShouldBind(&registro); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"msg": err.Error()})
-		return
+
+func PostRegistro(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	usuario ts.Login
+	err := json.NewDecoder(r.Body).Decode(&usuario)
+	fmt.Println("usuario: ", usuario)
+	if err != nil {
+		fmt.Fprintf(w, "error en kill")
 	}
-	db.CrearRegistro(registro)
-	c.JSON(http.StatusCreated, "it has been created successfully")
+	db.CrearRegistro(usuario)
+	json.NewEncoder(w).Encode("It has been created successfully")
 
+}
+
+func inicio(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	json.NewEncoder(w).Encode("Buenas")
 }
 
 
 
+func main() {
+	//router
+	router := mux.NewRouter()
 
-
-
-
-
-
-
-
-
-func Backend(){
-	fmt.Println("")
-    fmt.Println(" ==========================  SERVIDOR  ========================== ")
-    fmt.Println("")
-	router := gin.Default()
-    router.Use(gin.Recovery()) // Para recuperarse de Errores y enviar un 500
-	router.GET("/test", getTest) 
-	router.POST("/login", PostLogin) 
-	router.POST("/registro", PostRegistro) 
-	                              
-	router.Run(":4000")   
+	router.HandleFunc("/", inicio)
+	router.HandleFunc("/login", PostLogin) .Methods("POST", "OPTIONS")
+	router.HandleFunc("/registro", PostRegistro).Methods("POST", "OPTIONS")
+	fmt.Println("Server running on port 5000")
+	// iniciar servidor
+	http.ListenAndServe(":5000", router)
 }
-
