@@ -73,10 +73,10 @@ func memsim(w http.ResponseWriter, r *http.Request) {
 
 func Backend(){
 	router := mux.NewRouter()
-	router.HandleFunc("/", inicio)
-	router.HandleFunc("/login", PostLogin) .Methods("POST", "OPTIONS")
-	router.HandleFunc("/registro", PostRegistro).Methods("POST", "OPTIONS")
-	router.HandleFunc("/memsim", memsim).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api", inicio)
+	router.HandleFunc("/api/login", PostLogin) .Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/registro", PostRegistro).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/memsim", memsim).Methods("POST", "OPTIONS")
 	fmt.Println("Server running on port 5000")
 	// iniciar servidor
 	http.ListenAndServe(":5000", router)   

@@ -1,16 +1,16 @@
 version: "3"
 services:
-  go:
-    container_name: golang
-    restart: always
-    build: .
+  backend:
+    image: "backend"
+    container_name: backend
     ports:
-      - 4000:4000
+      - 5000:5000
     env_file:
-      - .env  
-    volumes:
-      - .:/usr/src/goApp
-
-#volumes:
-    #Golang:
-       #external: true        
+      - .env 
+  frontend:
+    image: "frontend"
+    container_name: frontend
+    ports:
+      - 3000:80
+    depends_on:
+      - backend
