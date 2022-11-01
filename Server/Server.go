@@ -1,8 +1,6 @@
 package Server
 import (
 	"fmt"
-	//"os"
-	//"bufio"
 	//p "github.com/eAntillon/SO2_F1_G2/Menu"
 	"net/http"
 	"github.com/gin-gonic/gin"
@@ -26,7 +24,7 @@ func PostLogin(c *gin.Context) {
 		return
 	}
 	getLogin =db.Login(login)
-	if login.Correo == getLogin.Correo || login.Password == getLogin.Password {
+	if login.Correo == getLogin.Correo && login.Password == getLogin.Password {
 		c.JSON(http.StatusOK, gin.H{"status": "authorized"})
 		return
 	}else{

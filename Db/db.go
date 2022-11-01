@@ -40,7 +40,7 @@ func CrearRegistro(registro ts.RegistroUsuario)(string,error){
     if err != nil {
         return "Esta vacio",nil 
     }
-    return "Tuit loaded successfully with id: "+fmt.Sprint(r.InsertedID), nil
+    return " loaded successfully with id: "+fmt.Sprint(r.InsertedID), nil
 }
 
 func Login(login ts.Login)(ts.Getlogin ){
@@ -72,8 +72,6 @@ func Login(login ts.Login)(ts.Getlogin ){
    return resultado
 
 }
-
-
 
 
 
