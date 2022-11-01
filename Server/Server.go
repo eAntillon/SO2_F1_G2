@@ -6,7 +6,7 @@ import (
 	"github.com/gorilla/mux"
 	db "github.com/eAntillon/SO2_F1_G2/Db"
 	ts "github.com/eAntillon/SO2_F1_G2/Types"
-	me "github.com/eAntillon/SO2_F1_G2/Memsim"
+	mem "github.com/eAntillon/SO2_F1_G2/Memsim"
 	
 )
 func PostLogin(w http.ResponseWriter, r *http.Request) {
@@ -16,7 +16,6 @@ func PostLogin(w http.ResponseWriter, r *http.Request) {
 	var login ts.Login
 	var getLogin ts.Getlogin
 	err := json.NewDecoder(r.Body).Decode(&login)
-	fmt.Println("usuario: ", login)
 	if err != nil {
 		fmt.Fprintf(w, "error en kill")
 	}
@@ -40,7 +39,6 @@ func PostRegistro(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	var usuario ts.Login
 	err := json.NewDecoder(r.Body).Decode(&usuario)
-	fmt.Println("usuario: ", usuario)
 	if err != nil {
 		fmt.Fprintf(w, "error en kill")
 	}
@@ -64,11 +62,12 @@ func memsim(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	var mems ts.MemStruct
 	err := json.NewDecoder(r.Body).Decode(&mems)
-	fmt.Println("Parametros: ", mems)
 	if err != nil {
 		fmt.Fprintf(w, "error en kill")
 	}
-	me.execute(mems.Ciclos, mems.Unidades)
+	resp := mem.Run(mems.Ciclos, mems.Unidades)
+	
+	json.NewEncoder(w).Encode(resp)
 
 }
 
