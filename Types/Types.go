@@ -17,3 +17,8 @@ type Getlogin struct {
     Password string 	  `bson:"password"`
 }
 
+type MemStruct struct {
+	Ciclos   int `json:"ciclos"`
+	Unidades string `json:"unidades"`
+}
+

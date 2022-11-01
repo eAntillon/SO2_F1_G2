@@ -6,9 +6,9 @@ import (
 	"github.com/gorilla/mux"
 	db "github.com/eAntillon/SO2_F1_G2/Db"
 	ts "github.com/eAntillon/SO2_F1_G2/Types"
+	me "github.com/eAntillon/SO2_F1_G2/Memsim"
+	
 )
-
-
 func PostLogin(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
@@ -24,22 +24,13 @@ func PostLogin(w http.ResponseWriter, r *http.Request) {
 	getLogin = db.Login(login)
 	if login.Correo == getLogin.Correo && login.Password == getLogin.Password {
 		resp["status"] = "authorized"
-		jsonResp, err := json.Marshal(resp)
-		if err != nil {
-			fmt.Fprintf(w, "error en kill")
-		}
-		json.NewEncoder(w).Encode(jsonResp)
+		json.NewEncoder(w).Encode(resp)
 		return
 	}else{
 		resp["status"] = "unauthorized"
-		jsonResp, err := json.Marshal(resp)
-		if err != nil {
-			fmt.Fprintf(w, "error en kill")
-		}
-		json.NewEncoder(w).Encode(jsonResp)
+		json.NewEncoder(w).Encode(resp)
 		return
 	}
-	
 }
 
 
@@ -62,19 +53,33 @@ func inicio(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	json.NewEncoder(w).Encode("Buenas")
+	resp := make(map[string]string)
+	resp["data"] = "Buenas"
+	json.NewEncoder(w).Encode(resp)
 }
 
+func memsim(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	var mems ts.MemStruct
+	err := json.NewDecoder(r.Body).Decode(&mems)
+	fmt.Println("Parametros: ", mems)
+	if err != nil {
+		fmt.Fprintf(w, "error en kill")
+	}
+	me.execute(mems.Ciclos, mems.Unidades)
 
+}
 
-func main() {
-	//router
+func Backend(){
 	router := mux.NewRouter()
-
 	router.HandleFunc("/", inicio)
 	router.HandleFunc("/login", PostLogin) .Methods("POST", "OPTIONS")
 	router.HandleFunc("/registro", PostRegistro).Methods("POST", "OPTIONS")
+	router.HandleFunc("/memsim", memsim).Methods("POST", "OPTIONS")
 	fmt.Println("Server running on port 5000")
 	// iniciar servidor
-	http.ListenAndServe(":5000", router)
+	http.ListenAndServe(":5000", router)   
 }
+
