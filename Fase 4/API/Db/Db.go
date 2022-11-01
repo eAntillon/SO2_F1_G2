@@ -9,7 +9,7 @@ import (
 	"encoding/json"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	ts "github.com/eAntillon/SO2_F1_G2/Types"
+	ts "github.com/eAntillon/SO2_F1_G2/Fase 4/API/Types"
 )
 
 var collection *mongo.Collection
@@ -29,7 +29,7 @@ func connect()(*mongo.Collection,error){
 
 	return client.Database(os.Getenv("DB")).Collection(os.Getenv("COLLECTION")),nil
 }
-func CrearRegistro(registro ts.RegistroUsuario)(string,error){
+func CrearRegistro(registro ts.usuario)(string,error){
 	
 	collection,errr :=connect()
 

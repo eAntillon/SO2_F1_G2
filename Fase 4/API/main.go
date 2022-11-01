@@ -14,57 +14,47 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	db "github.com/eAntillon/SO2_F1_G2/Fase 4/API/Db"
+	ts "github.com/eAntillon/SO2_F1_G2/Fase 4/API/Types"
 )
 
-type Login struct {
-	Correo 	 string `json:"correo"`
-    Password string `json:"password"`
-}
 
-type Getlogin struct {
-
-    ID primitive.ObjectID `bson:"_id"`
-	Correo string `bson:"correo"`
-    Password string `bson:"password"`
-
-}
-
-func PostLogin(c *gin.Context) {
-	var login ts.Login
-	var getLogin ts.Getlogin
-	if err := c.ShouldBind(&login); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"msg": err.Error()})
-		return
+func PostLogin(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	login ts.Login
+	getLogin ts.Getlogin
+	err := json.NewDecoder(r.Body).Decode(&login)
+	fmt.Println("usuario: ", login)
+	if err != nil {
+		fmt.Fprintf(w, "error en kill")
 	}
-	getLogin =db.Login(login)
+	getLogin = db.Login(login)
+
 	if login.Correo == getLogin.Correo && login.Password == getLogin.Password {
-		c.JSON(http.StatusOK, gin.H{"status": "authorized"})
+		json.NewEncoder(w).Encode("status": "authorized")
 		return
 	}else{
-		c.JSON(http.StatusUnauthorized, gin.H{"status": "unauthorized"})
+		json.NewEncoder(w).Encode("status": "unauthorized")
 		return
 	}
 	
 }
+
 
 func PostRegistro(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	ingreso := Login{}
-	err := json.NewDecoder(r.Body).Decode(&ingreso)
-	fmt.Println("INGRESO: ", ingreso)
+	usuario ts.Login
+	err := json.NewDecoder(r.Body).Decode(&usuario)
+	fmt.Println("usuario: ", usuario)
 	if err != nil {
 		fmt.Fprintf(w, "error en kill")
 	}
-
-	
-	if err := c.ShouldBind(&registro); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"msg": err.Error()})
-		return
-	}
-	db.CrearRegistro(registro)
-	c.JSON(http.StatusCreated, "it has been created successfully")
+	db.CrearRegistro(usuario)
+	json.NewEncoder(w).Encode("It has been created successfully")
 
 }
 
