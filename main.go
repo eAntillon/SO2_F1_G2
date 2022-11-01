@@ -26,7 +26,7 @@ func main() {
             fmt.Println("Error loading enviroment variables")
         }
    }
-    s.main()                           
+    s.back()                           
 	//nodemon --exec go run main.go --signal SIGTERM
 	
 }
