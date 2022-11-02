@@ -117,7 +117,8 @@ A cada proceso se le dará una unidad de memoria que deberá transportar. Al ter
 esperar al resto de procesos antes de iniciar una nueva ejecucion.
 
 
-| FASE 4 |
+
+## FASE 4
 
 ###### _INGRESAR A PAGINA PRINCIPAL_
 1) Se debe abrir el navegador de prefecencia, ingresar la IP donde esta alojada la pagina principal.
@@ -128,16 +129,42 @@ esperar al resto de procesos antes de iniciar una nueva ejecucion.
 
 
 
-![image](/assets/Usuario/UltimaFase/2.png)
+###### _SINO SE TIENE UNA CUENTA_
+1) Clic en "Registrate"
 ![image](/assets/Usuario/UltimaFase/3.png)
+
+
+###### _REGISTRARSE_
+1) Colocar un correo electronico valido
+2) Colocar la contraseña
+3) Volver a colocar la misma contraseña
+4) Click en Registrarse
 ![image](/assets/Usuario/UltimaFase/4.png)
+
+
+###### _INICIAR SESION_
+1) Ingresar un correo electronico valido, que este almacenado en la base de datos.
+2) Ingrese la contraseña correcta
+3) Clic en el boton "Iniciar sesion"
+![image](/assets/Usuario/UltimaFase/2.png)
+
+
+
+
+###### _PAGINA PRINCIPAL MetaOS_
+1) En este cuadro de texto se debe ingresar un numero, la cual indica el numero de ciclos o repeticiones
+2) En este cuadro de texto se deben ingresar las unidades, seguidos de una coma.
+3) En este recuadro se mostrara el procedimiento de lo que se va ejecutando.
+4) Clic en "Simular" para comenzar
 ![image](/assets/Usuario/UltimaFase/5.png)
+
+
+###### _CERRAR SESION_
+1) Para concluir la sesion, unicamente hacer click en "Cerrar Sesion"
 ![image](/assets/Usuario/UltimaFase/6.png)
 
+
+
 ###### _REGRESAR_
-
-
-
-
 Esta opcion sirve para regresar al menu anterior.
 
