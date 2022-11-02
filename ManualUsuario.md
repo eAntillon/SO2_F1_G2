@@ -116,7 +116,23 @@ cantidad total de ciclos de trabajo y un conjunto de distintas (unidades) de mem
 A cada proceso se le dará una unidad de memoria que deberá transportar. Al terminar su tarea, cada proceso deberá 
 esperar al resto de procesos antes de iniciar una nueva ejecucion.
 
+
+| FASE 4 |
+|----------------------------     |
+| 
+ALGO
+|
+
+| 
+ALGO2
+|
+
+
+
 ###### _REGRESAR_
+
+
+
 
 Esta opcion sirve para regresar al menu anterior.
 
