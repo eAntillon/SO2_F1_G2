@@ -118,16 +118,21 @@ esperar al resto de procesos antes de iniciar una nueva ejecucion.
 
 
 | FASE 4 |
-|----------------------------     |
-| 
-ALGO
-|
 
-| 
-ALGO2
-|
+###### _INGRESAR A PAGINA PRINCIPAL_
+1) Se debe abrir el navegador de prefecencia, ingresar la IP donde esta alojada la pagina principal.
+2) Click en el boton de "Iniciar Sesion"
+![image](/assets/Usuario/UltimaFase/1.png)
 
 
+
+
+
+![image](/assets/Usuario/UltimaFase/2.png)
+![image](/assets/Usuario/UltimaFase/3.png)
+![image](/assets/Usuario/UltimaFase/4.png)
+![image](/assets/Usuario/UltimaFase/5.png)
+![image](/assets/Usuario/UltimaFase/6.png)
 
 ###### _REGRESAR_
 
