@@ -2,7 +2,7 @@
 
 #####  Universidad de San Carlos de Guatemala
 #####  Escuela de Ciencias y Sistemas
-#####  Seminario de sistemas 2
+#####  Sistemas Operativos 2
 -------------------------
 ## Integrantes
 ## Grupo2
