@@ -1,24 +1,25 @@
 package strace
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
-	"syscall"
-	"bufio"
 	"strings"
+	"syscall"
+
 	bit "github.com/eAntillon/SO2_F1_G2/Reportes"
 )
 
 func Run(name string) {
-	colorReset := "\033[0m";
+	colorReset := "\033[0m"
 	colorYellow := "\033[33m"
-    colorGreen := "\033[32m"
+	colorGreen := "\033[32m"
 	for {
 		fmt.Println("|----------------------------------------------------|")
-		fmt.Print(string(colorGreen),">> Nombre: ", name, "\n")
+		fmt.Print(string(colorGreen), ">> Nombre: ", name, "\n")
 		execute()
-		fmt.Println(string(colorReset),"")
+		fmt.Println(string(colorReset), "")
 		fmt.Println("|----------------------------------------------------|")
 		fmt.Println("|                Ejecutar de nuevo?                  |")
 		fmt.Println("|  1)  Si                                            |")
@@ -57,7 +58,7 @@ func execute() {
 	}
 }
 
-func strace(command []string){
+func strace(command []string) {
 	var regs syscall.PtraceRegs
 	var ss syscallCounter
 
