@@ -2,7 +2,7 @@
 
 #####  Universidad de San Carlos de Guatemala
 #####  Escuela de Ciencias y Sistemas
-#####  Seminario de sistemas 2
+#####  Sistemas Operativos 2
 -------------------------
 ## Integrantes
 ## Grupo2
@@ -101,4 +101,26 @@ Y escribirá la bitácora:
 
 ![image](https://user-images.githubusercontent.com/71113297/188339036-f90ac87b-551a-4472-a711-22a8520a8e11.png)
 
-Esto ser
+
+
+## FASE 4
+![image](/assets/Tecnico/UltimaFase/backend_1.png)
+
+
+![image](/assets/Tecnico/UltimaFase/backend_2.png)
+
+
+![image](/assets/Tecnico/UltimaFase/backend_3.png)
+
+
+![image](/assets/Tecnico/UltimaFase/backend4_dockerfile.png)
+
+![image](/assets/Tecnico/UltimaFase/backend5_dockercompose.png)
+![image](/assets/Tecnico/UltimaFase/frontend_dockercompose.png)
+![image](/assets/Tecnico/UltimaFase/frontend_dockerfile.png)
+![image](/assets/Tecnico/UltimaFase/frontend_home.png)
+![image](/assets/Tecnico/UltimaFase/frontend_login.png)
+![image](/assets/Tecnico/UltimaFase/frontend_registro.png)
+
+
+
