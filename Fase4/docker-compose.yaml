@@ -1,0 +1,28 @@
+version: "3.1"
+services:
+  backend-service:
+    image: "eantillon/backend_f4"
+    container_name: backend-service
+    hostname: backend-service
+    networks:
+      - proyectof4
+    ports:
+      - 5000:5000
+    env_file:
+      - .env 
+  frontend:
+    image: "eantillon/frontend_f4"
+    container_name: frontend_f4
+    hostname: frontendf4
+    networks:
+      - proyectof4
+    ports:
+      - 80:80
+    links:
+      - backend-service
+    env_file:
+      - .env 
+
+networks:
+  proyectof4:
+    driver: bridge
