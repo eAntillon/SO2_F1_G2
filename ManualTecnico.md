@@ -103,23 +103,47 @@ Y escribirá la bitácora:
 
 
 
+
+
 ## FASE 4
+
+### _BACKEND IMPORTS, METODO POSTLOGIN_
+1) Aqui se importan todas las librerias que utilizamos.
+2) Utilizamos el metodo PostLogin para verificar que el usuario y contraseña sea el valido
 ![image](/assets/Tecnico/UltimaFase/backend_1.png)
 
 
+### _BACKEND METODO POSTREGISTRO, INICIO, MEMSIM_
+1) Metodo utilizado para crear un nuevo registro en la base de datos
+2) Este metodo lo utilizamos para comprobar que todo este funcionando correctamente, la conexion.
+3) Este metodo nos sirve para ejecutar el procedimiento MEMSIM
 ![image](/assets/Tecnico/UltimaFase/backend_2.png)
 
-
+### _BACKEND METODO BACKEND_
+1) En este metodo nos sirve para tener almacenar todas las rutas de la API
 ![image](/assets/Tecnico/UltimaFase/backend_3.png)
 
 
+
+### _DOCKERFILE DEL BACKEND_
 ![image](/assets/Tecnico/UltimaFase/backend4_dockerfile.png)
 
+### _DOCKERCOMPOSE DEL BACKEND_
 ![image](/assets/Tecnico/UltimaFase/backend5_dockercompose.png)
+
+### _DOCKERCOMPOSE DEL FRONTEND_
 ![image](/assets/Tecnico/UltimaFase/frontend_dockercompose.png)
+
+### _DOCKERFILE DEL FRONTEND_
 ![image](/assets/Tecnico/UltimaFase/frontend_dockerfile.png)
+
+### _PAGINA HOME_
 ![image](/assets/Tecnico/UltimaFase/frontend_home.png)
+
+### _PAGINA LOGIN_
 ![image](/assets/Tecnico/UltimaFase/frontend_login.png)
+
+### _PAGINA DEL REGISTRO_
 ![image](/assets/Tecnico/UltimaFase/frontend_registro.png)
 
 
